@@ -79,7 +79,7 @@ const WithdrawalRequestDG = ()=>{
               <div className="flex">
 
                 <span>
-                  <PayButton id={cellValues.id} />
+                  <PayButton id={cellValues.id} name={cellValues.row.doctor.full_name} account={cellValues.row.doctor.bank_informations[0].account_number} amount={cellValues.row.amount}/>
                  </span>
                  
                  {/* <span>

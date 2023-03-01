@@ -10,8 +10,8 @@ mutation DeleteBanner($id : Int!) {
   
 `;
 export const INSERT_BANNER =gql`
-mutation InsertBanner($end_date: String!, $start_date:String!, $url:String!){
-    insert_banners(objects: {end_date: $end_date,  start_date: $start_date, the_image:{data:{url:$url}}}) {
+mutation InsertBanner($end_date: String!, $start_date:String!, $url:String!,$bussiness_name:String!){
+    insert_banners(objects: {end_date: $end_date, bussiness_name:$bussiness_name start_date: $start_date, the_image:{data:{url:$url}}}) {
       affected_rows
       returning {
         image

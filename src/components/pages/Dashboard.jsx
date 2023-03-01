@@ -10,7 +10,15 @@ import Loader from '../utils/loading';
 import { GET_OVERVIEWS } from '../model/Queries/overviewQueries';
 import UpcomingAppointmentsDG from '../datagrids/UpcomingAppointmentsDG';
 import DoctorsOverview from './doctorsOerview';
+import { useNavigate } from 'react-router';
 const Dashboard = () => {
+const navigate = useNavigate()
+    const clickHandler = ()=>{
+    
+        return (
+            navigate('/doctor')
+        );
+    }
     const { loading, error, data } = useQuery(GET_OVERVIEWS);
     
     if (loading) return <Loader/>;
@@ -49,7 +57,7 @@ const Dashboard = () => {
         <div className='grid grid-cols-3 '>
             <UpcomingAppointmentsDG/>
             <div className='bg-white rounded-lg shadow pt-4 p-8 mr-8 mt-4 '>
-            <h4 className='font-bold py-4 px-2 text-green-900'>Doctor's List <span className='text-xs  font-semi-bold underline float-right'> View all</span></h4>
+            <h4 className='font-bold py-4 px-2 text-green-900'>Doctor's List <span className='text-xs  font-semi-bold underline float-right' onClick={clickHandler}> View all</span></h4>
 
             <DoctorsOverview/>
              </div>

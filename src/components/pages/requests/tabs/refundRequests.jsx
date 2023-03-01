@@ -1,10 +1,11 @@
 import React from "react";
+import RefundRequestDG from "../../../datagrids/RefundRequestDG";
 
 const RefundRequests = () =>{
 
 
     return (
-        <div> Refund requests</div>
+        <div> <RefundRequestDG/></div>
     );
 }
 export default RefundRequests;

@@ -13,7 +13,6 @@ const WithdrawalRequests = () =>{
  
     return(
       <div>
-        hello
         <WithdrawalRequestDG/>
       </div>
     )

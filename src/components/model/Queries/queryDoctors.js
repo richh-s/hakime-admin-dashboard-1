@@ -23,6 +23,11 @@ query GetDoctors {
     profile_image {
       url
     }
+    packages {
+      chat
+      video
+      voice
+    }
   }
 } `;
 export const GET_DOCTOR_DETAIL = gql`
@@ -30,6 +35,7 @@ query GetDoctors ($id:Int!) {
   doctors (where: {id: {_eq: $id}})  {
     id
     full_name
+    email
     sex
     speciallity
     phone_number
@@ -39,6 +45,14 @@ query GetDoctors ($id:Int!) {
     is_verified
     is_suspended
     created_at
+    experience_year
+      experiences {
+        department
+        designation
+        end_date
+        hospital_name
+        start_date
+      }
     speciallities{
       speciallity_name
     }
@@ -46,14 +60,27 @@ query GetDoctors ($id:Int!) {
       url
     }
     wallet
-    reviews{
-      user {
-        full_name
-      }
-      review
-      rate
+    packages {
+      chat
+      video
+      voice
+    }
+    licenceImage {
+      url
     }
     rate
+    reviews {
+      created_at
+      rate
+      review
+      user {
+        full_name
+        profile_image {
+          url
+        }
+      }
+    
+  }
     bank_informations {
       bank_name
       account_number
@@ -92,8 +119,16 @@ export const GET_DOCTOR_BY_ID = gql`
         hospital_name
         start_date
       }
+      packages {
+        chat
+        video
+        voice
+      }
       full_name
       licence
+      licenceImage {
+        url
+      }
       phone_number
       profile_image {
         url

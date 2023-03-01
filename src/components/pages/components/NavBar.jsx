@@ -11,6 +11,7 @@ import DrawerItem from './DrawerItems';
  import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
  import LogoutIcon from '@mui/icons-material/Logout';
  import DashboardIcon from '@mui/icons-material/Dashboard';
+ import CategoryIcon from '@mui/icons-material/Category';
 const Navigation = () => {
     return (
         <nav className=' text-left fixed top-0 left-0  w-2/12  t font-semibold bg-white shadow-xl rounded-lg min-h-screen  '>
@@ -20,23 +21,21 @@ const Navigation = () => {
         </div>
         </Link>
             <ul className=''>
-                <DrawerItem link="/home" title="Dashboard" icon={DashboardIcon}/ >
-                <DrawerItem link="/patient" title="Patients" icon={GroupIcon}/>
-                <DrawerItem link="/appointments" title="Appointments" icon={BookOnlineIcon}/>
-                <DrawerItem link="/requests" title="Manage billings" icon={NotificationsActiveIcon}/>
-                <DrawerItem link="/doctor" title="Manage doctors" icon={PeopleAltIcon}/>
-                <DrawerItem link="/ads" title="Manage advertisment" icon={FeaturedVideoIcon}/>
-                <DrawerItem link="/catagories" title="Manage catagories" />
+                <DrawerItem link="/home" title="Dashboard" icon={<DashboardIcon/>}/ >
+                <DrawerItem link="/patient" title="Patients" icon={<GroupIcon/>}/>
+                <DrawerItem link="/appointments" title="Appointments" icon={<BookOnlineIcon/>}/>
+                <DrawerItem link="/requests" title="Manage billings" icon={<NotificationsActiveIcon/>}/>
+                <DrawerItem link="/doctor" title="Manage doctors" icon={<PeopleAltIcon/>}/>
+                <DrawerItem link="/ads" title="Manage advertisment" icon={<FeaturedVideoIcon/>}/>
+                <DrawerItem link="/catagories" title="Manage catagories" icon={<CategoryIcon/>} />
 
-                <div>
-                {/* <img src={illustration} /> */}
-            </div>
-            <DrawerItem link="/" title="logout" className="fixed"/>
+              
                 
               
               
             </ul>
-        
+            <DrawerItem link="/" title="logout" icon={<LogoutIcon/>} className="absolute bottom-0 left-0"/>
+
 
         </nav>
     );

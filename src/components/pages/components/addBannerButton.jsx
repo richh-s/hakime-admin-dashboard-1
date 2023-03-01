@@ -15,28 +15,16 @@ import AddIcon from '@mui/icons-material/Add';
 import { Label } from '@mui/icons-material';
 import { useMutation } from "@apollo/client";
 import { INSERT_BANNER, INSERT_BANNER_IMAGE } from '../../model/mutations/advertisementMutations';
-
+import UploadImageButton from './uploadImage';
 export default function AddBannerButton() {
   const [open, setOpen] = React.useState(false);
   const [start_date, setStart_date] = React.useState("");
   const [end_date, setEnd_date] = React.useState("");
   const [isActive, setIsActive] = React.useState(false);
   const [bussinessName, setBussinessName] = React.useState("");
-  const [img, setImg] = React.useState("");
-  const [imgId, setImgId] = React.useState(0);
-  function encodeImageFileAsURL(element) {
-  var file = element.target.files[0];
-  var reader = new FileReader();
-  reader.onloadend = function() {
-    console.log('RESULT', reader.result.toString());
-    setImg(reader.result.toString());
-    
-  }
-  reader.readAsDataURL(file);
- insert_banner_image({ variables: { image: img} });
 
 
-}
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -47,9 +35,7 @@ export default function AddBannerButton() {
   };
  const handleSubmit = (event)=>{
   event.preventDefault();
-   console.log(img)
-   
-   console.log(imgId)
+  
   //  insert_banner({ variables: { url: img, start_date:start_date, end_date:end_date} });
 
 
@@ -122,29 +108,9 @@ const[insert_banner_image, {data,loading,error}] = useMutation(INSERT_BANNER_IMA
             }
           /><br/><br/>
           
-          {/* <FormControl>
-      <FormLabel id="demo-row-radio-buttons-group-label">Active?</FormLabel>
-      <RadioGroup
-        row
-        aria-labelledby="demo-row-radio-buttons-group-label"
-        name="row-radio-buttons-group"
-      >
-        <FormControlLabel value="True" control={<Radio />} label="True" onChange={setIsActive(true)} checked={isActive===true}/>
-        <FormControlLabel value="False" control={<Radio />} label="False" checked={isActive===true} defaultChecked/>
-        
-      </RadioGroup>
-    </FormControl>  <br/><br/> */}
-    <input type="file"   onChange = {(e)=>{
-      encodeImageFileAsURL(e)
-    // console.log(parseInt(data.insert_images.returning[0].id));
-
-    }}
-            error = {!img}
-            helperText= {
-              !img? 'Required' : " "
-            }/>
-        {img? (<img src={img}/>):(<div></div>)}
-        </form>
+         
+  <UploadImageButton/>
+  </form>
       
 
         </DialogContent>

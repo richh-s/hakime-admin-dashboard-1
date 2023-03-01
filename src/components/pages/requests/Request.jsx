@@ -41,7 +41,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function RequestTabs() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -54,15 +54,15 @@ export default function BasicTabs() {
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs centered value={value} variant="fullWidth" onChange={handleChange} aria-label="basic tabs example" textColor='primary' indicatorColor='primary'
   >
-          <Tab label="Refund requests" {...a11yProps(1)} />
-          <Tab label="Withdrawal requests" {...a11yProps(2)} />
+          <Tab label="Withdrawal requests" {...a11yProps(1)} />
+          <Tab label="Refund requests" {...a11yProps(2)} />
         </Tabs>
       </Box>
       
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={0}>
         <WithdrawalRequests/>
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={1}>
         <RefundRequests/>
       </TabPanel>
     </Box>
